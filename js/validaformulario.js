@@ -60,4 +60,36 @@ function validar(formulario){
         //posicionar el puntero donde surgio el error en este caso
         return false;
     }
+
+
+    /*
+    queremos validar que la entrada del campo de texto admita unicamente
+    letras ya sea mayusculas o minisculas
+    */ 
+
+    var checkOK = "qwertyuiopasdfghjklñzxcvbnm"+"QWERTYUIOPASDFGHJKLÑZXCVBNM";
+
+    var checkStr = formulario.nombre.value; //obtenemos el valor de nombre
+
+    var allValid = true;  //verificacion booleana para las cadenas
+
+    for (i=0; i < checkStr.length; i++){
+        var ch = checkStr.charAt(i);
+
+        //otro for para ahora si comparar contra la cadena checkOK
+        for(j=0; j < checkOK.length; j++)
+            if(ch == checkOK.charAt(j))
+            break;
+
+            if(j == checkOK.length){
+                allValid = false;
+                break;
+            }
+    }
+
+    if(!allValid){
+        alert("Escriba unicamente letras en el campo nombre");
+        formulario.nombre.focus();
+        return false;
+    }
 }
