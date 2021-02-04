@@ -125,4 +125,23 @@ function validar(formulario){
        formulario.edad.focus();
        return false;
    }
+
+   /*
+   vamos a validar la entrada del campo del correo electronico
+   haremos uso de expresiones regulares (es una comprobacion de elementos de una cadena
+    que deben de cumplir con un formato ya sea de entrada o salida)
+   */
+
+   var txt = formulario.email.value;
+
+   //creamos la expresion regular para la comprobacion del formato
+   //xxxxx@xxxxx.xxxx  xxxx.xxxx@xxxxx.xxxx.xxx
+
+   var b = /^[^@\s]+@[^@\.\s]+(\.[^@\.\s]+)+$/;
+
+   alert("Email " + (b.test(txt)?"":"no")+ " valido");
+
+   return b.test(txt);
+
+
 }
