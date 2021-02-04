@@ -92,4 +92,37 @@ function validar(formulario){
         formulario.nombre.focus();
         return false;
     }
+
+
+
+    /*
+    vamos a validar que unicamente en el campo de edad
+    se introduzcan valores numericos
+    */
+
+   var checkOK = "1234567890";
+
+   var checkStr = formulario.edad.value; //obtenemos el valor de edad
+
+   var allValid = true;  //verificacion booleana para las cadenas
+
+   for (i=0; i < checkStr.length; i++){
+       var ch = checkStr.charAt(i);
+
+       //otro for para ahora si comparar contra la cadena checkOK
+       for(j=0; j < checkOK.length; j++)
+           if(ch == checkOK.charAt(j))
+           break;
+
+           if(j == checkOK.length){
+               allValid = false;
+               break;
+           }
+   }
+
+   if(!allValid){
+       alert("Escriba unicamente numeros en el campo de edad");
+       formulario.edad.focus();
+       return false;
+   }
 }
