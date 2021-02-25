@@ -3,17 +3,12 @@ vamos a crear una funcion que se encargue de validar la entrada
 de los datos a partir de un evento de teclado
 */
 
-function validarn(e) {
-
-    var teclado = (document.all)? e.keyCode : e.which;
-    if (teclado == 8) return true;
-    //patron de la prueba logica, en pocas palabras la expresion regular
-    var patron = /[0-9]\d ./;
-
-    var tec = String.fromCharCode(teclado);
-
+function validarn(e) { 
+    teclad = (document.all) ? e.keyCode : e.which; 
+    if (teclad==8) return true; 
+    patron =/[0-9\d .]/; 
+    tec = String.fromCharCode(teclad); 
     return patron.test(tec);
-    
 }
 
 /*
@@ -24,6 +19,7 @@ funcion que se encargue del calculo de los intereses de las ventas por comision
 function interes(){
 
     var valor = document.formulario.sueldo.value;
+    alert("h")
     //tenemos que parsearlo pq lo obtenemos como cadena
     var sueldo = parseInt(valor);
 
